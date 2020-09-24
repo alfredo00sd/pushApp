@@ -4,7 +4,7 @@ import {FormsModule} from "@angular/forms";
 
 import { AppComponent } from './app.component';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
-import { PaymentDetailFormComponent } from './payment-details/payment-detail-form/payment-detail-form.component';
+import { PaymentDetailComponent } from './payment-details/payment-detail/payment-detail.component';
 import { PaymentDetailListComponent } from './payment-details/payment-detail-list/payment-detail-list.component';
 import { PaymentDetailService } from './shared/payment-detail.service';
  
@@ -12,7 +12,7 @@ import { PaymentDetailService } from './shared/payment-detail.service';
   declarations: [
     AppComponent,
     PaymentDetailsComponent,
-    PaymentDetailFormComponent,
+    PaymentDetailComponent,
     PaymentDetailListComponent
   ],
   imports: [

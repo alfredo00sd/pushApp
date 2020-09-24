@@ -1,5 +1,5 @@
 export class PaymentDetail {
-    id : number;
+    Id : number;
     CardOwnerName : string;
     CardType : string;
     CardNumber : string;
