@@ -9,9 +9,37 @@ import { NgForm } from '@angular/forms';
 })
 export class PaymentDetailComponent implements OnInit {
 
-  constructor(private service : PaymentDetailService) { }
+  constructor(public service : PaymentDetailService) { }
 
   ngOnInit(): void {
+    this.resetForm();
+  }
+  // Clear form data
+  resetForm(form ?: NgForm){
+    if(form != null)
+      form.resetForm();
+    this.service.formData = {
+      Id : 0,
+      CardOwnerName : "",
+      CardType : "",
+      CardNumber : "",
+      ExpirationDate : "",
+      CVV : ""
+    }
+  }
+  // Here we have the data ones someone submit the form, then here we can access form-data.
+
+  onSubmit(form : NgForm){
+    //Post form data to API.
+    this.service.postPaymentDetail(form.value).subscribe(
+      res => {
+        this.resetForm(form);
+      },
+      err => {
+        console.log(err);
+      }
+    )
+    
   }
 
 }
