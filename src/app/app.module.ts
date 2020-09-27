@@ -14,6 +14,7 @@ import { PaymentDetailService } from './shared/payment-detail.service';
 import { ApplayoutComponent } from './applayout/applayout.component';
 import { NavbarComponent } from './Applayout/navbar/navbar.component';
 import { FooterComponent } from './Applayout/footer/footer.component';
+import { AppUserComponent } from './app-user/app-user.component';
 
  
 @NgModule({
@@ -24,7 +25,8 @@ import { FooterComponent } from './Applayout/footer/footer.component';
     PaymentDetailListComponent,
     ApplayoutComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    AppUserComponent
   ],
   imports: [
     BrowserModule,
