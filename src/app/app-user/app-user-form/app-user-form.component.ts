@@ -37,11 +37,11 @@ export class AppUserFormComponent implements OnInit {
 
   // Here we have the data ones someone submit the form, then here we can access form-data.
   onSubmit(form : NgForm) {
-    
-    if(this.service.formData.Id == 0)
-      this.insertRecord(form);
-    else
-      this.updateRecord(form);
+    console.log(form)
+    //if(this.service.formData.Id == 0)
+     // this.insertRecord(form);
+   // else
+     // this.updateRecord(form);
   }
 
   insertRecord(form : NgForm) {
