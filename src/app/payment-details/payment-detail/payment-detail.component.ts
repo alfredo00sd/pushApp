@@ -30,18 +30,42 @@ export class PaymentDetailComponent implements OnInit {
   }
   // Here we have the data ones someone submit the form, then here we can access form-data.
 
-  onSubmit(form : NgForm){
+  onSubmit(form : NgForm) {
+    
+    if(this.service.formData.Id == 0)
+      this.insertRecord(form);
+    else
+      this.updateRecord(form);
+  }
+
+  insertRecord(form : NgForm) {
+    
     //Post form data to API.
-    this.service.postPaymentDetail(form.value).subscribe(
+    this.service.postPaymentDetail().subscribe(
       res => {
         this.resetForm(form);
-        this.toastr.success("Submitted Successfuly", "AngularApp")
+        this.toastr.success("Submitted Successfuly", "AngularApp");
+        this.service.refreshList();
       },
       err => {
         console.log(err);
       }
-    )
+    );
+  }
+
+  updateRecord(form : NgForm) {
     
+    //Post form data to API.
+    this.service.updatePaymentDetail().subscribe(
+      res => {
+        this.resetForm(form);
+        this.toastr.info("Data updated Successfuly", "AngularApp");
+        this.service.refreshList();
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
 }

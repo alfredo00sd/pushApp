@@ -2,6 +2,12 @@
 input.ng-touched.ng-invalid {
     border-color: #dc3545;
 }
+footer {
+  position: fixed;
+  height: 100px;
+  bottom: 0;
+  width: 100%;
+}
 input.ng-valid {
     border-color: #28a745;
 }
