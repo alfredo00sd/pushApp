@@ -15,6 +15,9 @@ import { ApplayoutComponent } from './applayout/applayout.component';
 import { NavbarComponent } from './Applayout/navbar/navbar.component';
 import { FooterComponent } from './Applayout/footer/footer.component';
 import { AppUserComponent } from './app-user/app-user.component';
+import { AppUserListComponent } from './app-user/app-user-list/app-user-list.component';
+import { AppUserFormComponent } from './app-user/app-user-form/app-user-form.component';
+import { UserLoginComponent } from './app-user/user-login/user-login.component';
 
  
 @NgModule({
@@ -26,7 +29,10 @@ import { AppUserComponent } from './app-user/app-user.component';
     ApplayoutComponent,
     NavbarComponent,
     FooterComponent,
-    AppUserComponent
+    AppUserComponent,
+    AppUserListComponent,
+    AppUserFormComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
