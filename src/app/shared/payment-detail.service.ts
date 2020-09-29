@@ -24,6 +24,7 @@ export class PaymentDetailService {
   //Talk to API services
   postPaymentDetail() {
     //Post url from web API
+    //this.formData.CardNumber = this.formData.CardNumber + "";
     console.log(this.formData);
     return this.http.post(this.rootUrl+'/PaymentDetails', this.formData);
   }

@@ -11,10 +11,10 @@ export class AppUserService {
     Name : null,
     LastName : null,
     Email : null,
-    Age : null,
     Birthday : null,
     UserType : null,
-    Hobbies : null,
+    Color : null,
+    Price : null,
     Gender : null,
     Comment : null
   };
@@ -37,8 +37,8 @@ export class AppUserService {
     return this.http.put(this.rootUrl+'/UserModels/'+this.formData.Id, this.formData);
   }
 
-  deleteAppUser() {
-    return this.http.delete(this.rootUrl+'/UserModels/'+this.formData.Id);
+  deleteAppUser(Id) {
+    return this.http.delete(this.rootUrl+'/UserModels/'+Id);
   }
 
   //Get all records from API
