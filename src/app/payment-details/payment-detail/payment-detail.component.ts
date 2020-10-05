@@ -1,4 +1,4 @@
-import { PaymentDetailService } from 'src/app/shared/payment-detail.service';
+import { EmployeeService } from 'src/app/shared/employee.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class PaymentDetailComponent implements OnInit {
 
-  constructor(public service : PaymentDetailService, public toastr : ToastrService) { }
+  constructor(public service : EmployeeService, public toastr : ToastrService) { }
 
   ngOnInit(): void {
     this.resetForm();
@@ -21,51 +21,53 @@ export class PaymentDetailComponent implements OnInit {
       form.resetForm();
     this.service.formData = {
       Id : 0,
-      CardOwnerName : "",
-      CardType : "",
-      CardNumber : "",
-      ExpirationDate : "",
-      CVV : ""
+      CustomerId : "",
+      AccountType : "",
+      AccountNumber : 0,
+      Amount : 0
     }
   }
+
   // Here we have the data ones someone submit the form, then here we can access form-data.
 
   onSubmit(form : NgForm) {
     
     if(this.service.formData.Id == 0)
-      this.insertRecord(form);
+      console.log("Adding");
+      //this.insertRecord(form);
     else
-      this.updateRecord(form);
+    console.log("Editing");
+    //this.updateRecord(form);
   }
 
   insertRecord(form : NgForm) {
     
     //Post form data to API.
-    this.service.postPaymentDetail().subscribe(
-      res => {
-        this.resetForm(form);
-        this.toastr.success("Submitted Successfuly", "AngularApp");
-        this.service.refreshList();
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    // this.service.postPaymentDetail().subscribe(
+    //   res => {
+    //     this.resetForm(form);
+    //     this.toastr.success("Submitted Successfuly", "AngularApp");
+    //     this.service.refreshList();
+    //   },
+    //   err => {
+    //     console.log(err);
+    //   }
+    // );
   }
 
   updateRecord(form : NgForm) {
     
     //Post form data to API.
-    this.service.updatePaymentDetail().subscribe(
-      res => {
-        this.resetForm(form);
-        this.toastr.info("Data updated Successfuly", "AngularApp");
-        this.service.refreshList();
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    // this.service.updatePaymentDetail().subscribe(
+    //   res => {
+    //     this.resetForm(form);
+    //     this.toastr.info("Data updated Successfuly", "AngularApp");
+    //     this.service.refreshList();
+    //   },
+    //   err => {
+    //     console.log(err);
+    //   }
+    // );
   }
 
 }

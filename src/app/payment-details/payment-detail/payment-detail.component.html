@@ -4,10 +4,10 @@
         <div class="input-group">
             <div class="input-group-prepend">
                 <div class="input-group-text bg-white">
-                    <i class="fas fa-user-circle" [class.green-icon]="CardOwnerName.valid" [class.red-icon]="CardOwnerName.invalid && CardOwnerName.touched" ></i>
+                    <i class="fas fa-address-card" [class.green-icon]="CustomerId.valid" [class.red-icon]="CustomerId.invalid && CustomerId.touched" ></i>
                 </div>
             </div>
-            <input name = "CardOwnerName" #CardOwnerName="ngModel" [(ngModel)]="service.formData.CardOwnerName" class="form-control" placeholder="Card Owner Name" required>
+            <input minlength="11" maxlength="11" name = "CustomerId" #CustomerId="ngModel" [(ngModel)]="service.formData.CustomerId" class="form-control" placeholder="Cedula del empleado" required>
         </div>
     </div>
 
@@ -15,13 +15,13 @@
         <div class="input-group">
             <div class="input-group-prepend">
                 <div class="input-group-text bg-white">
-                    <i class="fas fa-credit-card" [class.green-icon]="CardType.valid" [class.red-icon]="CardType.invalid && CardType.touched"></i>
+                    <i class="fas fa-credit-card" [class.green-icon]="AccountType.valid" [class.red-icon]="AccountType.invalid && AccountType.touched"></i>
                 </div>
             </div>
-            <select name="CardType" #CardType="ngModel" [(ngModel)]="service.formData.CardType" class="form-control" required>
-                <option>Card type...</option>
-                <option value="C">Credito</option>
-                <option value="D">Debito</option>
+            <select name="AccountType" #AccountType="ngModel" [(ngModel)]="service.formData.AccountType" class="form-control" required>
+                <option value="">Tipo de cuenta...</option>
+                <option value="AHORROS">Cuenta de ahorros</option>
+                <option value="CORRIENTE">Cuenta corriente</option>
             </select>
         </div>
     </div>
@@ -30,41 +30,30 @@
         <div class="input-group">
             <div class="input-group-prepend">
                 <div class="input-group-text bg-white">
-                    <i class="fas fa-id-card" [class.green-icon]="CardNumber.valid" [class.red-icon]="CardNumber.invalid && CardNumber.touched"></i>
+                    <b [class.red-icon]="Amount.invalid && Amount.touched">Numero de cuenta</b> &nbsp; <i class="fas fa-fingerprint" [class.green-icon]="AccountNumber.valid" [class.red-icon]="AccountNumber.invalid && AccountNumber.touched"></i>
                 </div>
             </div>
-            <input minlength="16" maxlength="16" name = "CardNumber" #CardNumber="ngModel" [(ngModel)]="service.formData.CardNumber" class="form-control" placeholder="0000-0000-0000-0000" required>
+            <input minlength="10" maxlength="10" name = "AccountNumber" #AccountNumber="ngModel" [(ngModel)]="service.formData.AccountNumber" class="form-control" placeholder="Numero de cuenta" required>
         </div>
     </div>
 
     <div class="form-row">
-        <div class="form-group col-md-7">
+        <div class="form-group col-md-12">    
             <div class="input-group">
                 <div class="input-group-prepend">
                     <div class="input-group-text bg-white">
-                        <i class="fas fa-calendar-day" [class.green-icon]="ExpirationDate.valid" [class.red-icon]="ExpirationDate.invalid && ExpirationDate.touched"></i>
+                        <b [class.red-icon]="Amount.invalid && Amount.touched">Monto a depositar</b> &nbsp; <i class="fas fa-sliders-h" [class.green-icon]="Amount.valid" [class.red-icon]="Amount.invalid && Amount.touched"></i>
                     </div>
                 </div>
-                <input type="date" name = "ExpirationDate" #ExpirationDate="ngModel" [(ngModel)]="service.formData.ExpirationDate" class="form-control" placeholder="Expiration date" [class.invalid]="ExpirationDate.invalid && ExpirationDate.touched" required>
-            </div>
-        </div>
-    
-        <div class="form-group col-md-5">    
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <div class="input-group-text bg-white">
-                        <i class="fas fa-cubes" [class.green-icon]="CVV.valid" [class.red-icon]="CVV.invalid && CVV.touched"></i>
-                    </div>
-                </div>
-                <input type="password" minlength="3" maxlength="3" name = "CVV" #CVV="ngModel" [(ngModel)]="service.formData.CVV" class="form-control" placeholder="CVV" required>
+                <input  minlength="1" maxlength="10" name = "Amount" #Amount="ngModel" [(ngModel)]="service.formData.Amount" class="form-control" required>
             </div>
         </div>
     
     </div>
     
     <div class="form-group">
-        <button type="submit" class="btn btn-success btn-lg btn-block" [disabled]="form.invalid"><i class="fas fa-cloud-upload-alt"></i> 
-            Save data
+        <button type="submit" class="btn btn-primary btn-lg btn-block" [disabled]="form.invalid"><i class="fas fa-plus"></i> 
+            Agregar
         </button>
     </div>
 
